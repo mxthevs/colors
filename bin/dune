@@ -1,4 +1,4 @@
 (executable
- (name ocaml_starter)
- (public_name ocaml_starter)
- (libraries starter_lib))
+ (name colors)
+ (public_name colors)
+ (libraries colors_lib))

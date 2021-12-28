@@ -1,5 +1,5 @@
 {
-  "name": "ocaml-starter",
+  "name": "colors",
   "esy": {
     "build": "dune build -p #{self.name}"
   },
