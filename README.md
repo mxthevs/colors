@@ -6,10 +6,16 @@ Extract colors from any text file
 
 ## TODO
 
-[] Read file
+[x] Read file
+
 [] Extract hexadecimal values
+
 [] Extract RGB(a) values
+
 [] Extract HSL values
+
 [] Clear duplicated valus
+
 [] Allow user to convert values
+
 [] Use streams for big files (idea)
