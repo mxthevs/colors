@@ -1,3 +1,5 @@
+open Colors_test
+
 (**
   Entrypoint for the test runner.
   This aggregates all the tests and call Alcotest to run them. When
@@ -6,4 +8,4 @@
 
 let () =
   let open Alcotest in
-  run "Colors" []
+  run "Colors" [ ("parser equality", Parser.equality) ]
