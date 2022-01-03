@@ -8,4 +8,4 @@ open Colors_test
 
 let () =
   let open Alcotest in
-  run "Colors" [ ("parser equality", Parser.equality) ]
+  run "Colors" [ ("parser equality", Parser.equality); ("hex equality", Hex.equality) ]
