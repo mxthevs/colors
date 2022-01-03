@@ -28,10 +28,25 @@ let can_split_a_string_in_two_inclusive () =
 
   (check (pair string string)) "should be equal" output (Option.get (Parser.lsplit2i input ~on:'#'))
 
+let can_combine_take_and_lsplit () =
+  let open Alcotest in
+  let input = "I think that #7159C1 is a nice color" in
+  let output = "#7159C1" in
+
+  let result =
+    input
+    |> Parser.lsplit2i ~on:'#'
+    |> Option.fold ~none:"Could not find `#`. So sad." ~some:snd
+    |> Parser.take 7
+  in
+
+  (check string) "should be equal" output result
+
 let equality =
   [
     ("substrings", `Quick, can_take_substrings);
     ("lsplit2", `Quick, can_split_a_string_in_two);
     ("lsplit2 fail", `Quick, cant_split_if_char_is_inexistent);
     ("lsplit2i", `Quick, can_split_a_string_in_two_inclusive);
+    ("lsplit2i + take", `Quick, can_combine_take_and_lsplit);
   ]
