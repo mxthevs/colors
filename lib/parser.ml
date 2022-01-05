@@ -1,4 +1,5 @@
 let take n s = String.sub s 0 n
+let skip i s = String.sub s i (String.length s - i)
 
 let lsplit2_aux s ?(padd = 0) ~on () =
   let open String in
