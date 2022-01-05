@@ -7,7 +7,7 @@ Extract colors from any text file
 ## TODO
 
 - [x] Read file
-- [ ] Extract hexadecimal values
+- [x] Extract hexadecimal values
 - [ ] Extract RGB(a) values
 - [ ] Extract HSL values
 - [ ] Clear duplicated values
