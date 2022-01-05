@@ -28,3 +28,6 @@ let of_string input =
     |> Option.fold ~none:(Some ("#" ^ String.uppercase_ascii input)) ~some:(fun _ -> None)
   else
     None
+
+let to_string = function Some c -> c | None -> "[NO_COLOR]"
+let is_nocolor = function "[NO_COLOR]" -> true | _ -> false
