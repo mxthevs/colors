@@ -17,7 +17,9 @@ let is_valid_hex hex =
 
 let of_string input =
   if input.[0] = '#' && String.length input = 7 then
-    match is_valid_hex input with true -> Some (String.uppercase_ascii input) | false -> None
+    match is_valid_hex input with
+    | true -> Some (String.uppercase_ascii input)
+    | false -> None
   else if String.length input = 6 then
     input
     |> String.uppercase_ascii
@@ -29,5 +31,10 @@ let of_string input =
   else
     None
 
-let to_string = function Some c -> c | None -> "[NO_COLOR]"
-let is_nocolor = function "[NO_COLOR]" -> true | _ -> false
+let to_string = function
+  | Some c -> c
+  | None -> "[NO_COLOR]"
+
+let is_nocolor = function
+  | "[NO_COLOR]" -> true
+  | _ -> false
