@@ -4,3 +4,4 @@ break-infix=fit-or-vertical
 if-then-else = fit-or-vertical
 align-constructors-decl = true
 cases-exp-indent = 2
+type-decl = sparse
