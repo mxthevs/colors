@@ -14,7 +14,7 @@ let handle_file file =
       aux (Parser.skip hex_size rest) (color :: colors)
   in
 
-  aux file []
+  List.rev (aux file [])
 
 let () =
   match Array.to_list Sys.argv with
