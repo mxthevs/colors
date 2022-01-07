@@ -8,10 +8,10 @@ let handle_file file =
     let hex_size = 7 in
 
     match splitted with
+    | None -> colors
     | Some (_, rest) ->
       let color = String.trim rest |> Parser.take hex_size |> Hex.of_string in
       aux (Parser.skip hex_size rest) (color :: colors)
-    | None -> colors
   in
 
   aux file []
