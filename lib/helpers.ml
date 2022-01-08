@@ -5,3 +5,4 @@ let list_to_option = function
 let uniq_cons x xs = if List.mem x xs then xs else x :: xs
 let remove_from_right xs = List.fold_right uniq_cons xs []
 let dedup = remove_from_right
+let cat s1 s2 = s1 ^ s2
