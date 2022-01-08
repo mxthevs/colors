@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "ocaml": "4.12.x",
-    "@opam/dune": "*"
+    "@opam/dune": "*",
+    "@opam/cmdliner": "*"
   },
   "devDependencies": {
     "@opam/merlin": "*",
