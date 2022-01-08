@@ -1,4 +1,4 @@
 (executable
  (name colors)
  (public_name colors)
- (libraries colors_lib))
+ (libraries colors_lib cmdliner))
