@@ -25,6 +25,8 @@ let () =
     |> List.map Hex.to_string
     |> List.filter (fun c -> not (Hex.is_nocolor c))
     |> Helpers.dedup
+    |> List.map (fun hex -> (hex, Rgb.to_string (Rgb.from_string hex)))
+    |> List.map (fun (hex, rgb) -> Printf.sprintf "%s - %s" hex rgb)
     |> List.iter print_endline
   | _ ->
     prerr_endline usage;
