@@ -9,6 +9,7 @@
 <hr /> <br />
 
 ![OCaml](https://img.shields.io/badge/-OCaml-c15540?style=square&logo=ocaml&logoColor=white)
+![build workflow](https://github.com/mxthevs/colors/actions/workflows/build.yml/badge.svg)
 
 ## Table of Contents
 
