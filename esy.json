@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "license": "MIT",
   "esy": {
-    "build": "dune build -p #{self.name}"
+    "build": [
+      "dune build -p #{self.name}",
+      "dune build @test/runtest -f"
+    ]
   },
   "scripts": {
     "watch": "dune build -p #{self.name} -w",
