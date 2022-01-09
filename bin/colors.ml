@@ -50,7 +50,7 @@ let input_file_term =
 let show_rgb_term =
   let default = false in
   let info =
-    Arg.info [ "rgb" ] ~docv:"RGB" ~doc:"Print RGB values of the parsed hexadecimals to console."
+    Arg.info [ "rgb" ] ~docv:"BOOL" ~doc:"Print RGB values of the parsed hexadecimals to console."
   in
   Arg.value (Arg.opt Arg.bool default info)
 
@@ -63,7 +63,9 @@ let doc = "Extract colors from any text file."
 let man =
   [
     `S Manpage.s_description;
-    `P "Extract colors from any text file.";
+    `P
+      "Extract colors from any text file. It can also convert values between different color \
+       formats. Currently supported conversions: Hexadecimal to RGB.";
     `S Manpage.s_authors;
     `P "Matheus Henrique <mxthevsh@gmail.com>";
     `S Manpage.s_bugs;
@@ -71,7 +73,7 @@ let man =
   ]
 
 let parse_command_line () =
-  let info = Term.info ~doc ~man "colors" in
+  let info = Term.info ~doc ~man ~version:"0.0.1" "colors" in
   match Term.eval (cmdline_term, info) with
   | `Error _ -> exit 1
   | `Version -> exit 0
