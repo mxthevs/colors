@@ -1,5 +1,7 @@
+<br />
+
 <p align="center">
-  <img alt="GitPoint" title="GitPoint" src=".github/colors.svg">
+  <img alt="colors" title="colors" src=".github/colors.svg">
 </p>
 
 <p align="center">
