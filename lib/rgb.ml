@@ -6,6 +6,7 @@ type t = rgb option
 
 let from_string hex_s =
   try
+    (* TODO: Parsing of RGBa values is not implemented yet *)
     let r = hex_s |> Parser.skip 1 |> Parser.take 2 |> Helpers.cat "0x" |> int_of_string in
     let g = hex_s |> Parser.skip 3 |> Parser.take 2 |> Helpers.cat "0x" |> int_of_string in
     let b = hex_s |> Parser.skip 5 |> Parser.take 2 |> Helpers.cat "0x" |> int_of_string in
