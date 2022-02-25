@@ -18,9 +18,8 @@ let from_string hex_s =
   | Failure _ -> None
 
 let from_hex hex =
-  match hex with
-  | Some hex_s -> from_string hex_s
-  | None -> None
+  let hex_string = Hex.to_string hex in
+  from_string hex_string
 
 (* Maybe we can just fail if t is None *)
 let to_string = function

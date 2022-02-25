@@ -1,8 +1,4 @@
-type rgb =
-  | RGB  of int * int * int
-  | RGBa of int * int * int * float
-
-type t = rgb option
+type t
 
 val from_string : string -> t
 

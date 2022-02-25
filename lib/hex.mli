@@ -1,4 +1,4 @@
-type t = string option
+type t
 
 val of_string : string -> t
 
