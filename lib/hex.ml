@@ -31,6 +31,7 @@ let of_string input =
   else
     None
 
+(* Maybe we can just fail if t is None *)
 let to_string = function
   | Some c -> c
   | None -> "[NO_COLOR]"

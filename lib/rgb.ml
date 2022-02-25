@@ -22,6 +22,7 @@ let from_hex hex =
   | Some hex_s -> from_string hex_s
   | None -> None
 
+(* Maybe we can just fail if t is None *)
 let to_string = function
   | Some (RGB (r, g, b)) -> Printf.sprintf "rgb(%d, %d, %d)" r g b
   | Some (RGBa (r, g, b, a)) -> Printf.sprintf "rgba(%d, %d, %d, %f)" r g b a
