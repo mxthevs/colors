@@ -1,5 +1,12 @@
 open Colors_lib
 
+let pprint_hex ppf hex = Fmt.pf ppf "%s" (Hex.to_string hex)
+let eq_hex a b = Hex.to_string a = Hex.to_string b
+
+let hex =
+  let open Alcotest in
+  testable pprint_hex eq_hex
+
 let can_create_hex_string () =
   let open Alcotest in
   let input = "#7159c1" in
