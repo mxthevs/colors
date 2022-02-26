@@ -36,6 +36,6 @@ let to_string = function
   | Some c -> c
   | None -> "[NO_COLOR]"
 
-let is_nocolor = function
+let is_invalid = function
   | "[NO_COLOR]" -> true
   | _ -> false

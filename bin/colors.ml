@@ -32,7 +32,7 @@ let run (conf : Cli.conf) =
   |> File.read
   |> handle_file
   |> List.map Hex.to_string
-  |> List.filter (fun c -> not (Hex.is_nocolor c))
+  |> List.filter (fun c -> not @@ Hex.is_invalid c)
   |> Helpers.dedup
   |> List.map (get_color_string conf.show_rgb)
   |> List.iter print_endline
