@@ -4,7 +4,7 @@ type rgb =
 
 type t = rgb option
 
-let from_string hex_s =
+let from_hex_string hex_s =
   try
     (* TODO: Parsing of RGBa values is not implemented yet *)
     let r = hex_s |> Parser.skip 1 |> Parser.take 2 |> Helpers.cat "0x" |> int_of_string in
@@ -20,7 +20,7 @@ let from_string hex_s =
 
 let from_hex hex =
   let hex_string = Hex.to_string hex in
-  from_string hex_string
+  from_hex_string hex_string
 
 (* Maybe we can just fail if t is None *)
 let to_string = function
