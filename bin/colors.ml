@@ -24,7 +24,7 @@ let get_color_string show_rgb hex =
   if not show_rgb then
     hex
   else
-    let rgb = Rgb.to_string (Rgb.from_string hex) in
+    let rgb = Rgb.to_string (Rgb.from_hex_string hex) in
     hex ^ " - " ^ rgb
 
 let run conf =
