@@ -4,9 +4,13 @@
   "license": "MIT",
   "esy": {
     "build": [
-      "dune build -p #{self.name}",
-      "dune build @test/runtest -f"
-    ]
+      "dune build -p #{self.name}"
+    ],
+    "release": {
+      "bin":[
+        "colors"
+      ]
+    }
   },
   "scripts": {
     "watch": "dune build -p #{self.name} -w",
