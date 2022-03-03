@@ -26,9 +26,9 @@ let cannot_create_invalid_hex () =
   let inputs = [ "#715"; "LOL"; "#110YAB"; "#7159C12"; "#" ] in
   let outputs = List.map Hex.of_string inputs in
 
-  let all_none = outputs |> List.map Hex.to_string |> Utils.every (fun hex -> hex = "[NO_COLOR]") in
+  let all_invalid = List.filter Hex.is_valid outputs |> List.length = 0 in
 
-  (check bool) "should be equal" true all_none
+  (check bool) "should be equal" true all_invalid
 
 let equality =
   [
