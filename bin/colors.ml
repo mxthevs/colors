@@ -31,7 +31,7 @@ let run (conf : Cli.conf) =
   file_name
   |> File.read
   |> handle_file
-  |> List.filter (fun hex -> not @@ Hex.is_invalid hex)
+  |> List.filter Hex.is_valid
   |> List.map Hex.to_string
   |> Helpers.dedup
   |> List.map (get_color_string conf.show_rgb)

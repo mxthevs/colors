@@ -41,6 +41,6 @@ let to_string = function
   | Some hex -> hex
   | None -> invalid_hex_format ()
 
-let is_invalid = function
-  | None -> true
-  | Some _ -> false
+let is_valid = function
+  | Some _ -> true
+  | None -> false
