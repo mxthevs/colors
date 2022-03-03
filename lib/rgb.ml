@@ -4,6 +4,11 @@ type rgb =
 
 type t = rgb option
 
+exception Invalid_rgb_format of string
+
+let invalid_rgb_format () =
+  raise (Invalid_rgb_format "trying to call to_string on an invalid rgb value")
+
 let is_valid_rgb (r, g, b) ~alpha =
   (r >= 0 && r <= 255)
   && (g >= 0 && g <= 255)
@@ -48,4 +53,4 @@ let from_hex hex =
 let to_string = function
   | Some (RGB (r, g, b)) -> Printf.sprintf "rgb(%d, %d, %d)" r g b
   | Some (RGBa (r, g, b, a)) -> Printf.sprintf "rgba(%d, %d, %d, %f)" r g b a
-  | None -> "[NO_COLOR]"
+  | None -> invalid_rgb_format ()
