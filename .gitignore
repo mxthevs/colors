@@ -1,6 +1,11 @@
-_esy
-node_modules
+node_modules/
 
+_build
+_esy
+_release
+
+*.byte
+*.native
 *.install
 
 /*.json
