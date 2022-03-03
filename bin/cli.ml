@@ -35,7 +35,7 @@ let man =
   ]
 
 let parse_command_line () =
-  let info = Term.info ~doc ~man ~version:"0.0.1" "colors" in
+  let info = Term.info "colors" ~doc ~man ~version:"%%VERSION%%" in
   match Term.eval (cmdline_term, info) with
   | `Error _ -> exit 1
   | `Version -> exit 0
