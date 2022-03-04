@@ -28,14 +28,19 @@ let run (conf : Cli.conf) =
     | None -> failwith "No file path provided"
   in
 
-  file_name
-  |> File.read
-  |> handle_file
-  |> List.filter Hex.is_valid
-  |> List.map Hex.to_string
-  |> Helpers.dedup
-  |> List.map (get_color_string conf.show_rgb)
-  |> List.iter print_endline
+  let colors =
+    file_name
+    |> File.read
+    |> handle_file
+    |> List.filter Hex.is_valid
+    |> List.map Hex.to_string
+    |> Helpers.dedup
+    |> List.map (get_color_string conf.show_rgb)
+  in
+
+  match colors with
+  | [] -> print_endline "No colors found in this file."
+  | colors -> List.iter print_endline colors
 
 let safe_run conf =
   try run conf with
