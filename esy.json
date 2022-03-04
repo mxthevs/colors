@@ -7,7 +7,7 @@
       "dune build -p mxthevs--colors"
     ],
     "release": {
-      "bin":[
+      "bin": [
         "colors"
       ]
     }

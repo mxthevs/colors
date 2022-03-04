@@ -21,9 +21,9 @@ let get_color_string show_rgb hex =
     let rgb = Rgb.to_string (Rgb.from_hex_string hex) in
     hex ^ " - " ^ rgb
 
-let run (conf : Cli.conf) =
+let run file show_rgb =
   let file_name =
-    match conf.input_file with
+    match file with
     | Some file -> file
     | None -> failwith "No file path provided"
   in
@@ -35,15 +35,15 @@ let run (conf : Cli.conf) =
     |> List.filter Hex.is_valid
     |> List.map Hex.to_string
     |> Helpers.dedup
-    |> List.map (get_color_string conf.show_rgb)
+    |> List.map (get_color_string show_rgb)
   in
 
   match colors with
   | [] -> print_endline "No colors found in this file."
   | colors -> List.iter print_endline colors
 
-let safe_run conf =
-  try run conf with
+let safe_run file show_rgb =
+  try run file show_rgb with
   | Failure message ->
     Printf.eprintf "Error: %s!\n" message;
     exit 1
@@ -53,7 +53,6 @@ let safe_run conf =
 
 let main () =
   Printexc.record_backtrace true;
-  let conf = Cli.parse_command_line () in
-  safe_run conf
+  Cli.run_command safe_run
 
 let () = main ()
