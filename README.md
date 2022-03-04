@@ -1,7 +1,7 @@
 <br />
 
 <p align="center">
-  <img alt="colors" title="colors" src=".github/colors.svg">
+  <img alt="colors" title="colors" src="https://raw.githubusercontent.com/mxthevs/colors/main/.github/colors.svg">
 </p>
 
 <p align="center">
