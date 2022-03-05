@@ -15,7 +15,8 @@
   "scripts": {
     "watch": "dune build -p mxthevs--colors -w",
     "test": "esy dune build @test/runtest -f",
-    "test:watch": "esy dune build @test/runtest -f -w"
+    "test:watch": "esy dune build @test/runtest -f -w",
+    "clean": "rm -rf esy.lock _esy"
   },
   "dependencies": {
     "ocaml": "4.12.x",
