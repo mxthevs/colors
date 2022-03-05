@@ -20,8 +20,18 @@ let can_create_rgba_string () =
 
   (check bool) "should be equal" true (Rgb.is_valid output)
 
+let cannot_create_rgb_from_invalid_hex_string () =
+  let open Alcotest in
+  let inputs = [ "#715"; "LOL"; "#110YAB"; "#7159C12"; "#" ] in
+  let outputs = List.map Rgb.from_hex_string inputs in
+
+  let all_invalid = outputs |> List.filter Rgb.is_valid |> List.length = 0 in
+
+  (check bool) "should be equal" true all_invalid
+
 let equality =
   [
     ("from_hex_string", `Quick, can_create_rgb_string);
     ("from_hex_string rgba", `Quick, can_create_rgba_string);
+    ("of_string invalid", `Quick, cannot_create_rgb_from_invalid_hex_string);
   ]

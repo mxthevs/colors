@@ -17,6 +17,9 @@ let is_valid_rgb (r, g, b) ~alpha =
   && alpha <= 1.0
 
 let from_hex_string hex_s =
+  match Hex.is_valid (Hex.of_string hex_s) with
+  | false -> None
+  | true ->
   try
     let r = hex_s |> Parser.skip 1 |> Parser.take 2 |> Helpers.cat "0x" |> int_of_string in
     let g = hex_s |> Parser.skip 3 |> Parser.take 2 |> Helpers.cat "0x" |> int_of_string in
