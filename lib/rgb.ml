@@ -13,8 +13,8 @@ let is_valid_rgb (r, g, b) ~alpha =
   (r >= 0 && r <= 255)
   && (g >= 0 && g <= 255)
   && (b >= 0 && b <= 255)
-  && alpha >= 1.0
-  && alpha <= 255.0
+  && alpha >= 0.0
+  && alpha <= 1.0
 
 let from_hex_string hex_s =
   try
