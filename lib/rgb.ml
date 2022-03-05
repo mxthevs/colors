@@ -49,8 +49,11 @@ let from_hex hex =
   let hex_string = Hex.to_string hex in
   from_hex_string hex_string
 
-(* Maybe we can just fail if t is None *)
 let to_string = function
   | Some (RGB (r, g, b)) -> Printf.sprintf "rgb(%d, %d, %d)" r g b
   | Some (RGBa (r, g, b, a)) -> Printf.sprintf "rgba(%d, %d, %d, %f)" r g b a
   | None -> invalid_rgb_format ()
+
+let is_valid = function
+  | Some _ -> true
+  | None -> false
