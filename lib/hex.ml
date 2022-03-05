@@ -18,15 +18,14 @@ let is_valid_hex hex =
   |> List.tl
   |> List.filter is_hex
   |> List.length
-  |> fun n -> n = 6
+  |> fun n -> n = 6 || n = 8
 
 let of_string input =
-  (* TODO: allow parsing of hex with alpha value *)
-  if input.[0] = '#' && String.length input = 7 then
+  if input.[0] = '#' && (String.length input = 7 || String.length input = 9) then
     match is_valid_hex input with
     | true -> Some (String.uppercase_ascii input)
     | false -> None
-  else if String.length input = 6 then
+  else if String.length input = 6 || String.length input = 8 then
     input
     |> String.uppercase_ascii
     |> String.to_seq
