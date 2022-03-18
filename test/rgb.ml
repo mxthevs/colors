@@ -7,6 +7,19 @@ let rgb =
   let open Alcotest in
   testable pprint_rgb eq_rgb
 
+let pprint_rgb_tuple ppf tup =
+  let r, g, b, a = tup in
+  Fmt.pf ppf "(%d, %d, %d, %f)" r g b a
+
+let eq_rgb_tuple a b =
+  let r1, g1, b1, a1 = a in
+  let r2, g2, b2, a2 = b in
+  r1 = r2 && g1 = g2 && b1 = b2 && a1 = a2
+
+let rgb_tuple =
+  let open Alcotest in
+  testable pprint_rgb_tuple eq_rgb_tuple
+
 let can_create_rgb_string () =
   let open Alcotest in
   let input = "#dd4b3a" in
@@ -29,9 +42,16 @@ let cannot_create_rgb_from_invalid_hex_string () =
 
   (check bool) "should be equal" true all_invalid
 
+let can_unwrap_rgb () =
+  let open Alcotest in
+  let output = (255, 255, 255, 1.0) in
+
+  (check rgb_tuple) "should be equal" output (Rgb.unwrap (Rgb.from_hex_string "#FFFFFF"))
+
 let equality =
   [
     ("from_hex_string", `Quick, can_create_rgb_string);
     ("from_hex_string rgba", `Quick, can_create_rgba_string);
     ("of_string invalid", `Quick, cannot_create_rgb_from_invalid_hex_string);
+    ("unwrap", `Quick, can_unwrap_rgb);
   ]
