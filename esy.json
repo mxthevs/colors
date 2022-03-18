@@ -20,8 +20,9 @@
   },
   "dependencies": {
     "ocaml": "4.12.x",
-    "@opam/dune": "*",
-    "@opam/cmdliner": "*"
+    "@opam/dune": "< 3.0.0",
+    "@opam/cmdliner": "*",
+    "@opam/notty": "*"
   },
   "devDependencies": {
     "@opam/merlin": "*",

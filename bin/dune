@@ -1,4 +1,4 @@
 (executable
  (name colors)
  (public_name colors)
- (libraries colors_lib cmdliner))
+ (libraries colors_lib cmdliner notty notty.unix))

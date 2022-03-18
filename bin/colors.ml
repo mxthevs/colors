@@ -14,12 +14,21 @@ let handle_file file =
 
   List.rev (aux file [])
 
-let get_color_string hex ~with_rgb =
-  if not with_rgb then
-    hex
-  else
+let to_notty_color rgb =
+  let open Notty in
+  let r, g, b, _ = Rgb.unwrap rgb in
+  A.rgb_888 ~r ~g ~b
+
+let to_notty_image original color =
+  let open Notty in
+  I.string A.(fg (to_notty_color color)) original
+
+let color_string hex ~with_rgb =
+  if with_rgb then
     let rgb = Rgb.to_string (Rgb.from_hex_string hex) in
     hex ^ " - " ^ rgb
+  else
+    hex
 
 let run file show_rgb =
   let file_name =
@@ -35,14 +44,20 @@ let run file show_rgb =
     |> List.filter Hex.is_valid
     |> List.map Hex.to_string
     |> Helpers.dedup
-    |> List.map (get_color_string ~with_rgb:show_rgb)
+    |> List.map @@ fun original ->
+       (color_string original ~with_rgb:show_rgb, Rgb.from_hex_string original)
   in
 
   match colors with
   | [] -> print_endline (Ui.warn "No colors found in this file.")
   | colors ->
     print_endline (Ui.success "Found the following colors in this file:");
-    List.iter print_endline colors
+
+    colors
+    |> List.iter @@ fun (color_string, rgb) ->
+       let image = to_notty_image color_string rgb in
+       Notty_unix.output_image image;
+       print_string "\n"
 
 let safe_run file show_rgb =
   try run file show_rgb with
