@@ -2,14 +2,14 @@ open Colors_lib
 
 let handle_file file =
   let rec aux rest colors =
-    let splitted = Parser.lsplit2i ~on:'#' rest in
+    let splitted = String_utils.lsplit2i ~on:'#' rest in
     let hex_size = 7 in
 
     match splitted with
     | None -> colors
     | Some (_, rest) ->
-      let color = String.trim rest |> Parser.take hex_size |> Hex.of_string in
-      aux (Parser.skip hex_size rest) (color :: colors)
+      let color = String.trim rest |> String_utils.take hex_size |> Hex.of_string in
+      aux (String_utils.skip hex_size rest) (color :: colors)
   in
 
   List.rev (aux file [])

@@ -10,7 +10,7 @@ let () =
   let open Alcotest in
   run "Colors"
     [
-      ("parser equality", Parser.equality);
+      ("parser equality", String_utils.equality);
       ("hex equality", Hex.equality);
       ("rgb equality", Rgb.equality);
     ]

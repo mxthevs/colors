@@ -5,28 +5,34 @@ let can_take_substrings () =
   let input = "It's dangerous to go alone! Take this." in
   let output = "It's dangerous" in
 
-  (check string) "should be equal" output (Parser.take 14 input)
+  (check string) "should be equal" output (String_utils.take 14 input)
 
 let can_split_a_string_in_two () =
   let open Alcotest in
   let input = "I think that #7159C1 is a nice color" in
   let output = ("I think that ", "7159C1 is a nice color") in
 
-  (check (pair string string)) "should be equal" output (Option.get (Parser.lsplit2 input ~on:'#'))
+  (check (pair string string))
+    "should be equal" output
+    (Option.get (String_utils.lsplit2 input ~on:'#'))
 
 let cant_split_if_char_is_inexistent () =
   let open Alcotest in
   let input = "Never gonna give you up" in
   let output = None in
 
-  (check (option (pair string string))) "should be equal" output (Parser.lsplit2 input ~on:'#')
+  (check (option (pair string string)))
+    "should be equal" output
+    (String_utils.lsplit2 input ~on:'#')
 
 let can_split_a_string_in_two_inclusive () =
   let open Alcotest in
   let input = "I think that #7159C1 is a nice color" in
   let output = ("I think that ", "#7159C1 is a nice color") in
 
-  (check (pair string string)) "should be equal" output (Option.get (Parser.lsplit2i input ~on:'#'))
+  (check (pair string string))
+    "should be equal" output
+    (Option.get (String_utils.lsplit2i input ~on:'#'))
 
 let can_combine_take_and_lsplit () =
   let open Alcotest in
@@ -35,9 +41,9 @@ let can_combine_take_and_lsplit () =
 
   let result =
     input
-    |> Parser.lsplit2i ~on:'#'
+    |> String_utils.lsplit2i ~on:'#'
     |> Option.fold ~none:"Could not find `#`. So sad." ~some:snd
-    |> Parser.take 7
+    |> String_utils.take 7
   in
 
   (check string) "should be equal" output result
