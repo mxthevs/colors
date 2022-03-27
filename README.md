@@ -25,6 +25,8 @@
 
 colors is a CLI that parse colors from text files. It can also convert colors between different formats. Currently the application supports parsing hexadecimals (without alpha) and converting them to RGB.
 
+[![asciicast](https://asciinema.org/a/x5zbJ7nKf8DDilVgm1dy2oyWE.svg)](https://asciinema.org/a/x5zbJ7nKf8DDilVgm1dy2oyWE)
+
 ## Installation
 
 ### Using npm
@@ -45,10 +47,10 @@ yarn global add @mxthevs/colors
 colors /path/to/file.{txt,json,etc}
 ```
 
-In case you already have a package or shell function named `colors` in your system (This might be the case if you are using zsh, for example. You can check this by running `type colors` in your terminal), you can still run this package, after installing with the instructions above, with the command:
+In case you already have a package or shell function named `colors` in your system (This might be the case if you are using zsh, for example. You can check this by running `type colors` in your terminal), you can still run this package with the command:
 
 ```console
-npx colors /path/to/file.{txt,json,etc}
+npx @mxthevs/colors /path/to/file.{txt,json,etc}
 ```
 
 ## Options
