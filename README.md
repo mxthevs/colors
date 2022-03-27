@@ -27,6 +27,9 @@ colors is a CLI that parse colors from text files. It can also convert colors be
 
 [![asciicast](https://asciinema.org/a/x5zbJ7nKf8DDilVgm1dy2oyWE.svg)](https://asciinema.org/a/x5zbJ7nKf8DDilVgm1dy2oyWE)
 
+> ⚠️ As of version `0.0.2`, the output is in [Truecolor](https://en.wikipedia.org/wiki/Color_depth#True_color_(24-bit)) mode, so if the colors does not look right, it is very likely that your terminal does not support Truecolor. In the upcoming versions, we plan to let the user customize the output format. You can check a list of devices that support Truecolor [here](https://gist.github.com/XVilka/8346728#truecolor-support-in-output-devices).
+
+
 ## Installation
 
 ### Using npm
