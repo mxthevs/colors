@@ -1,6 +1,6 @@
 {
   "checksum": "fa973c3a6262b207fd0b846338b9b4b1",
-  "root": "@mxthevs/colors@link-dev:./esy.json",
+  "root": "@mxthevs/colors@link-dev:./package.json",
   "node": {
     "ocaml@4.12.0@d41d8cd9": {
       "id": "ocaml@4.12.0@d41d8cd9",
@@ -1787,11 +1787,15 @@
         "@opam/astring@opam:0.8.5@1300cee8"
       ]
     },
-    "@mxthevs/colors@link-dev:./esy.json": {
-      "id": "@mxthevs/colors@link-dev:./esy.json",
+    "@mxthevs/colors@link-dev:./package.json": {
+      "id": "@mxthevs/colors@link-dev:./package.json",
       "name": "@mxthevs/colors",
-      "version": "link-dev:./esy.json",
-      "source": { "type": "link-dev", "path": ".", "manifest": "esy.json" },
+      "version": "link-dev:./package.json",
+      "source": {
+        "type": "link-dev",
+        "path": ".",
+        "manifest": "package.json"
+      },
       "overrides": [],
       "dependencies": [
         "ocaml@4.12.0@d41d8cd9", "@opam/notty@opam:0.2.2@eb5395c0",

@@ -9,4 +9,5 @@ _release
 *.install
 
 /*.json
+!package.json
 /*.txt
