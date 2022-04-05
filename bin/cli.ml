@@ -25,7 +25,7 @@ let cmd fn =
       `P "You can report bugs at https://github.com/mxthevs/colors/issues";
     ]
   in
-  let info = Cmd.info "colors" ~doc ~man ~version:"0.0.1" in
+  let info = Cmd.info "colors" ~doc ~man ~version:"0.0.2" in
   Cmd.v info (colors_t fn)
 
 let run_command fn = exit (Cmd.eval (cmd fn))
