@@ -3,6 +3,9 @@
   "version": "0.0.2",
   "license": "MIT",
   "esy": {
+    "sandboxEnv": {
+      "PATH": "/opt/homebrew/bin:$PATH"
+    },
     "build": [
       "dune build -p #{self.name}"
     ],
@@ -19,17 +22,20 @@
     "clean": "rm -rf esy.lock _esy"
   },
   "dependencies": {
-    "ocaml": "4.12.x",
+    "ocaml": "4.14.x",
     "@opam/dune": "*",
     "@opam/cmdliner": "*",
     "@opam/notty": "*"
   },
   "devDependencies": {
-    "@opam/merlin": "*",
     "@opam/ocaml-lsp-server": "*",
     "@opam/ocamlformat": "*",
     "@opam/ocamlformat-rpc": "*",
     "@opam/utop": "*",
     "@opam/alcotest": "*"
+  },
+  "resolutions": {
+    "@opam/notty": "mxthevs/notty:notty.opam#6def07c5c2d01b4d3b283c8c6fe1595c9270dad8",
+    "@opam/easy-format": "1.3.2"
   }
 }
