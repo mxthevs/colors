@@ -21,7 +21,7 @@ let to_notty_color rgb =
 
 let to_notty_image original color =
   let open Notty in
-  I.string A.(fg (to_notty_color color)) original
+  I.string ~attr:A.(fg (to_notty_color color)) original
 
 let color_string hex ~with_rgb =
   if with_rgb then
